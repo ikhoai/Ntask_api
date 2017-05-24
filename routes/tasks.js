@@ -16,12 +16,12 @@ module.exports = app => {
                 });
         })
         .post((req, res) => {
-            Tasks.findAll({})
+            Tasks.create(req.body)
                 .then(result => res.json(result))
                 .catch(error => {
-                    res.status(412).json({msg: error.message});
+                    res.status(412).json({msg: error.message}); 
                 });
-        }); 
+        });
     app.route('/tasks/:id')
 
         .get((req, res) =>  {
